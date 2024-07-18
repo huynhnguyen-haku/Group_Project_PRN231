@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Admin/Layout/_AdminLayout.cshtml";
+}
+
+<!-- Input list: https://www.facebook.com/reel/1132281224471873 -->
+
+<div class="d-flex gradient-cards">
+    <div class="card">
+        <div class="d-flex container-card shadow">
+            <div class="w-100">
+                <p class="card-title">Register Average Range</p>
+                <p class="card-description">99 in this month</p>
+            </div>
+            <div class="align-items-center align-self-center justify-content-center p-3 ms-2 border border-3 rounded" style="border-color: #BE185D !important">
+                <i class="fa fa-bar-chart fa-5x" style="color: #BE185D"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="d-flex container-card shadow">
+            <div class="w-100">
+                <p class="card-title">Access Average Range</p>
+                <p class="card-description">99 in this month</p>
+            </div>
+            <div class="align-items-center align-self-center justify-content-center p-3 ms-2 border border-3 rounded" style="border-color: #BE185D !important">
+                <i class="fa fa-line-chart fa-5x" style="color: #BE185D"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-5">
+    <div class="d-flex justify-content-between">
+        <h2 class="fw-bold">Activity Rate / Year</h2>
+        <div>
+            <select class="form-select" aria-label="Default year: 2024">
+                <option value="2024" selected>Year 2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+    </div>
+    <canvas id="accountChart"></canvas>
+</div>

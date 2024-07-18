@@ -1,0 +1,189 @@
+﻿@{
+    Layout = "~/Views/Customer/Profile/Layout/_ProfileLayout.cshtml";
+}
+
+<div class="px-5 pt-5 bg-white">
+    <button type="button" id="btnAddNewAddress" class="btn btn-hover nunito-semiBold" style="background-color: #F9A8D4; color: var(--pink-800);"><i class="fa fa-plus me-2"></i>Add new delivery address</button>
+</div>
+
+<div class="w-100 bg-white rounded p-5">
+    <div class="d-flex justify-content-between">
+        <div class="form-check">
+            <input class="form-check-input radio-btn" type="radio" name="flexRadioDefault" id="address1">
+            <label class="ps-2 form-check-label nunito-extraBold" for="address1">
+                Address 1
+                <br />
+                <p class="text-secondary nunito-regular">
+                    6, Tang Bat Ho Street, Ho Phong Bar Ward, Bao Tap District, Ho Chi Minh City
+                </p>
+            </label>
+        </div>
+        <button id="btnAddress1" class="btn btn-hover" type="button"><i class="fa fa-pencil"></i></button>
+    </div>
+    <hr/>
+    <div class="d-flex justify-content-between">
+        <div class="form-check">
+            <input class="form-check-input radio-btn" type="radio" name="flexRadioDefault" id="address2" checked>
+            <label class="ps-2 form-check-label nunito-extraBold" for="address2">
+                Address 2
+                <br />
+                <p class="text-secondary nunito-regular">
+                    16, Tang Bat Ho Street, Ho Phong Bar Ward, Bao Tap District, Ho Chi Minh City
+                </p>
+            </label>
+        </div>
+        <button id="btnAddress2" class="btn btn-hover" type="button"><i class="fa fa-pencil"></i></button>
+    </div>
+    <hr />
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnAddress1").click(async () => {
+                const { value: formValues } = await Swal.fire({
+                    title: 'Edit Delivery Address',
+                    icon: 'info',
+                    html: `<div class="p-2 d-flex w-100 justify-content-between">
+                                <div class="mb-3 w-100 me-3">
+                                    <div class="d-flex">
+                                        <i class="fa fa-user border rounded-3 text-secondary"
+                                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                        <input type="text" id="fullname" class="form-control outfit-regular fs-5" placeholder="Enter your full name" aria-describedby="fullnameExc" autocomplete="on"/>
+                                    </div>
+                                    <p id="fullnameExc" class="form-text text-danger">This is error/exception</p>
+                                </div>
+                                <div class="mb-3 w-100 ms-3">
+                                    <div class="d-flex">
+                                        <i class="fa fa-phone border rounded-3 text-secondary"
+                                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                        <input type="text" id="phonenumber" class="form-control outfit-regular fs-5" placeholder="Enter your phone number" aria-describedby="phoneExc" autocomplete="on" required/>
+                                    </div>
+                                    <p id="phoneExc" class="form-text text-danger">This is error/exception</p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex">
+                                    <i class="fa fa-map-marker border rounded-3 text-secondary"
+                                        style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                    <input type="text" id="address" class="form-control outfit-regular fs-5" placeholder="Enter your address"
+                                            aria-describedby="passExc" />
+                                </div>
+                                <p id="passExc" class="form-text text-danger">This is password error/exception</p>
+                            </div>`,
+                    width: "1000px",
+                    focusConfirm: false,
+                    showCancelButton: true,
+                    preConfirm: () => {
+                        return [
+                            document.getElementById("swal-fullName".value),
+                            document.getElementById("swal-phoneNumber".value),
+                            document.getElementById("swal-address".value)
+                        ];
+                    }
+                });
+                if (formValues) {
+                    Swal.fire(JSON.stringify(formValues, null, 2));
+                }
+            });
+
+            $("#btnAddress2").click(async () => {
+                const { value: formValues } = await Swal.fire({
+                    title: 'Edit Delivery Address',
+                    icon: 'info',
+                    html: `<div class="p-2 d-flex w-100 justify-content-between">
+                                        <div class="mb-3 w-100 me-3">
+                                            <div class="d-flex">
+                                                <i class="fa fa-user border rounded-3 text-secondary"
+                                                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                                <input type="text" id="fullname" class="form-control outfit-regular fs-5" placeholder="Enter your full name" aria-describedby="fullnameExc" autocomplete="on"/>
+                                            </div>
+                                            <p id="fullnameExc" class="form-text text-danger">This is error/exception</p>
+                                        </div>
+                                        <div class="mb-3 w-100 ms-3">
+                                            <div class="d-flex">
+                                                <i class="fa fa-phone border rounded-3 text-secondary"
+                                                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                                <input type="text" id="phonenumber" class="form-control outfit-regular fs-5" placeholder="Enter your phone number" aria-describedby="phoneExc" autocomplete="on" required/>
+                                            </div>
+                                            <p id="phoneExc" class="form-text text-danger">This is error/exception</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex">
+                                            <i class="fa fa-map-marker border rounded-3 text-secondary"
+                                                style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                            <input type="text" id="address" class="form-control outfit-regular fs-5" placeholder="Enter your address"
+                                                    aria-describedby="passExc" />
+                                        </div>
+                                        <p id="passExc" class="form-text text-danger">This is password error/exception</p>
+                                    </div>`,
+                    width: "1000px",
+                    focusConfirm: false,
+                    showCancelButton: true,
+                    preConfirm: () => {
+                        return [
+                            document.getElementById("swal-fullName".value),
+                            document.getElementById("swal-phoneNumber".value),
+                            document.getElementById("swal-address".value)
+                        ];
+                    }
+                });
+                if (formValues) {
+                    Swal.fire(JSON.stringify(formValues, null, 2));
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnAddNewAddress").click(async () => {
+                const { value: formValues } = await Swal.fire({
+                    title: 'Add New Delivery Address',
+                    icon: 'info',
+                    html: `<div class="p-2 d-flex w-100 justify-content-between">
+                                        <div class="mb-3 w-100 me-3">
+                                            <div class="d-flex">
+                                                <i class="fa fa-user border rounded-3 text-secondary"
+                                                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                                <input type="text" id="fullname" class="form-control outfit-regular fs-5" placeholder="Enter your full name" aria-describedby="fullnameExc" autocomplete="on"/>
+                                            </div>
+                                            <p id="fullnameExc" class="form-text text-danger">This is error/exception</p>
+                                        </div>
+                                        <div class="mb-3 w-100 ms-3">
+                                            <div class="d-flex">
+                                                <i class="fa fa-phone border rounded-3 text-secondary"
+                                                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                                <input type="text" id="phonenumber" class="form-control outfit-regular fs-5" placeholder="Enter your phone number" aria-describedby="phoneExc" autocomplete="on" required/>
+                                            </div>
+                                            <p id="phoneExc" class="form-text text-danger">This is error/exception</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex">
+                                            <i class="fa fa-map-marker border rounded-3 text-secondary"
+                                                style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                                            <input type="text" id="address" class="form-control outfit-regular fs-5" placeholder="Enter your address"
+                                                    aria-describedby="passExc" />
+                                        </div>
+                                        <p id="passExc" class="form-text text-danger">This is password error/exception</p>
+                                    </div>`,
+                    width: "1000px",
+                    focusConfirm: false,
+                    showCancelButton: true,
+                    preConfirm: () => {
+                        return [
+                            document.getElementById("swal-fullName".value),
+                            document.getElementById("swal-phoneNumber".value),
+                            document.getElementById("swal-address".value)
+                        ];
+                    }
+                });
+                if (formValues) {
+                    Swal.fire(JSON.stringify(formValues, null, 2));
+                }
+            });
+        });
+    </script>
+}

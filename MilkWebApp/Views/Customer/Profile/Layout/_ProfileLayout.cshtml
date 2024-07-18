@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Customer/Layout/_CustomerLayout.cshtml";
+}
+
+<div class="d-flex p-3" style="background-color: var(--pink-50);">
+    <!-- Sidebar -->
+    <div class="d-flex flex-column flex-shrink-0 rounded bg-white" style="width: 300px">
+        <div class="d-flex align-items-center m-3">
+            <img src="~/img/Avatar.png" alt="Logo" width="75" height="75" />
+            <div class="d-flex flex-column flex-grow-1 ms-3 h-100 justify-content-between">
+                <h4 class="m-0 nunito-bold text-secondary">Parent Name</h4>
+                <span class="rounded-pill bg-warning p-2 text-center nunito-bold">You have 128 points</span>
+            </div>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column align-items-start px-3 gap-0">
+            <li class="nav-item w-100 mb-2">
+                <a asp-controller="Customer" asp-action="PersonalInfo" class="d-flex align-items-center justify-content-between nav-link active text-black outfit-regular" aria-current="page" style="background-color: var(--pink-300);">
+                    <i class="fa fa-user me-3"></i>
+                    <p class="flex-grow-1 m-0 nunito-regular" style="font-size: 18px;">Personal information</p>
+                    <i class="fa fa-angle-right ms-2"></i>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a asp-controller="Customer" asp-action="Addresses" class="d-flex align-items-center justify-content-between nav-link text-black outfit-regular">
+                    <i class="fa fa-address-book-o me-3"></i>
+                    <p class="flex-grow-1 m-0 nunito-regular" style="font-size: 18px;">Addresses</p>
+                    <i class="fa fa-angle-right ms-2"></i>
+                </a>
+            </li>
+        </ul>
+        <hr />
+        <ul class="nav nav-pills flex-column align-items-start px-3 gap-0">
+            <li class="nav-item w-100 mb-2">
+                <a asp-controller="Customer" asp-action="Orders" class="d-flex align-items-center justify-content-between nav-link text-black outfit-regular">
+                    <i class="fa fa-list-alt me-3"></i>
+                    <p class="flex-grow-1 m-0 nunito-regular" style="font-size: 18px;">Orders</p>
+                    <i class="fa fa-angle-right ms-2"></i>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a asp-controller="Customer" asp-action="Vouchers" class="d-flex align-items-center justify-content-between nav-link text-black outfit-regular">
+                    <i class="fa fa-percent me-3"></i>
+                    <p class="flex-grow-1 m-0 nunito-regular" style="font-size: 18px;">My Vourchers</p>
+                    <i class="fa fa-angle-right ms-2"></i>
+                </a>
+            </li>
+        </ul>
+        <hr />
+        <a href="#" class="nav-link text-black nunito-semiBold fs-5" style="background-color: var(--pink-700); color: white !important;" data-bs-toggle="modal" data-bs-target="#showingLogoutModal">
+            <i class="fa fa-sign-out me-2"></i>
+            Logout
+        </a>
+    </div>
+
+    <!-- Main -->
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</div>

@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "~/Views/Customer/Layout/_CustomerLayout.cshtml";
+}
+
+<div class="m-5 row justify-content-center align-items-center g-2">
+    <div class="col max-w-md space-y-6 rounded-lg shadow-md me-5">
+        <h1 class="nunito-bold">
+            Welcome to Milk Store
+        </h1>
+        <p class="fs-4 nunito-regular">
+            Please login to continue
+        </p>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "loginForm", id = "loginForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                <label for="email" class="form-label nunito-regular fs-4">Email</label>
+                <div class="d-flex">
+                    <i class="fa fa-envelope border rounded-3 text-secondary"
+                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                    <input type="email" id="email" class="form-control nunito-regular fs-5" placeholder="Enter your email" aria-describedby="emailExc" autocomplete="on" required />
+                </div>
+                <p id="emailExc" class="form-text text-danger">This is error/exception</p>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label nunito-regular fs-4">Password</label>
+                <div class="d-flex">
+                    <i class="fa fa-key border rounded-3 text-secondary"
+                    style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                    <input type="password" id="password" class="form-control nunito-regular fs-5" placeholder="Enter your password"
+                    aria-describedby="passExc" autocomplete="current-password" required />
+                </div>
+                <p id="passExc" class="form-text text-danger">This is password error/exception</p>
+            </div>
+            <div class="row mb-3 mx-2 d-flex w-100 justify-content-between">
+                <div class="form-check col">
+                    <input type="checkbox" class="form-check-input" id="rememberCheck" />
+                    <label class="form-check-label nunito-regular fs-5" for="rememberCheck">Remember Me</label>
+                </div>
+                <div class="col text-end">
+                    <a href="#" class="text-end link-secondary nunito-regular fs-5" style="text-decoration: none;">Forgot Password?</a>
+                </div>
+            </div>
+            <button id="btnLogin" type="submit" class="w-100 btn btn-hover nunito-bold fs-4" style="background-color: #F9A8D4;">
+                Login
+            </button>
+        }
+
+
+
+        <div class="text-center m-3">
+            <span class="text-zinc-400">—— Or you can ——</span>
+        </div>
+
+        <div class="d-flex flex-column">
+            <button class="p-3 mb-3 rounded-3 border-0 roboto-medium shadow-sm on-hover" style="background-color: ghostwhite">
+                <img aria-hidden="true" alt="Google" src="img/Google Logo.png" class="inline me-2" />
+                Sign in with Google
+            </button>
+            <button class="p-3 mb-3 text-white rounded-3 border-0 roboto-medium shadow on-hover"
+                    style="background-color: #1877F2;">
+                <img aria-hidden="true" alt="Facebook" src="img/Facebook Logo.png" class="inline me-2" />
+                Sign in with Facebook
+            </button>
+        </div>
+
+        <div class="text-center nunito-regular fs-5 text-secondary">
+            Don't have an account?
+            <a href="./Login/Register" class="nunito-bold link-secondary">Signup Here!</a><br />
+            Or continue as
+            <a href="Home" class="nunito-bold link-secondary" style="text-decoration: none;">Guest</a>
+        </div>
+    </div>
+
+    <div class="col items-center justify-center p-8">
+        <img src="img/unsplash_uFCkcE6GI40.png" alt="Cute baby"
+             class="w-100 rounded-3 shadow" height="800" />
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            load();
+            $("#btnLogin").click(function () {
+                var formLogin = new FormData();
+                formLogin.append("email", $("#email").val());
+                formLogin.append("password", $("#password").val());
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("LoginRequest", "Login")",
+                    data: formLogin,
+                    success: function (result) {
+                        console.log("Successfully logged in");
+                    },
+                    error: function (xhr, error) {
+                        console.error(xhr, error);
+                    }
+                })
+            })
+        })
+    </script>
+}

@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Milk SHop</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MilkWebApp.styles.css" asp-append-version="true" />
+
+    <!-- Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Outfit -->
+    <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 300px; background-color: var(--pink-50);">
+                <a href="/" class="d-flex flex-column align-items-center justify-content-center mb-3 mb-md-0 text-decoration-none">
+                    <div class="d-flex align-items-center ">
+                        <img src="../img/hugeicons--milk-bottle.svg" alt="Logo" width="50" height="50" />
+                        <h3 class="text-secondary">ADMIN</h3>
+                    </div>
+                    <h1 class="gamja-flower-regular" style="color: var(--pink-900);">Milk Store</h1>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item my-4">
+                        <a href="/Admin" class="nav-link active text-black outfit-regular" aria-current="page" style="background-color: var(--pink-300);">
+                            <i class="fa fa-bar-chart me-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <a href="/Admin/ManageAccount" class="nav-link text-black outfit-regular">
+                            <i class="fa fa-list-alt me-2"></i>
+                            Manage account
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <a href="/Admin/Profile" class="nav-link text-black outfit-regular">
+                            <i class="fa fa-user me-2"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <hr>
+                    <a href="#" class="nav-link my-4 text-black outfit-regular" style="background-color: var(--pink-700); color: white !important;" data-bs-toggle="modal" data-bs-target="#showingLogoutModal">
+                        <i class="fa fa-sign-out me-2"></i>
+                        Logout
+                    </a>
+                </ul>
+            </div>
+
+            <!-- Topbar -->
+            <div class="w-100">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 px-lg-4 static-top justify-content-between shadow">
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                   aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn" type="button" style="background-color: var(--pink-300);">
+                                    <i class="fa fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropstart no-arrow mx-4">
+                            <a class="nav-link" href="#" id="alertsDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    99+
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="p-0 dropdown-menu shadow" aria-labelledby="alertsDropdown">
+                                <h6 class="p-2 rounded text-white" style="background-color: var(--pink-500);">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="fw-bold">A new monthly report is ready to download!</span>
+                                </a>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </a>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account
+                                </a>
+                                <a class="dropdown-item text-center small text-black bg-secondary bg-opacity-25 text-decoration-underline" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropstart no-arrow me-4">
+                            <a class="nav-link" href="#" id="messagesDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    99+
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="p-0 dropdown-menu shadow" aria-labelledby="messagesDropdown">
+                                <h6 class="p-2 rounded text-white" style="background-color: var(--pink-500);">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="fw-bold">
+                                        <div class="text-truncate">
+                                            Hi there! I am wondering if you can help me with a
+                                            problem I've been having.
+                                        </div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="text-truncate">
+                                        I have the photos that you ordered last month, how
+                                        would you like them sent to you?
+                                    </div>
+                                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                                </a>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="text-truncate">
+                                        Last month's report looks great, I am very happy with
+                                        the progress so far, keep up the good work!
+                                    </div>
+                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                </a>
+                                <a class="dropdown-item align-items-center" href="#">
+                                    <div class="text-truncate">
+                                        Am I a good boy? The reason I ask is because someone
+                                        told me that people say this to all dogs, even if they aren't good...
+                                    </div>
+                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                </a>
+                                <a class="dropdown-item text-center small text-black bg-secondary bg-opacity-25 text-decoration-underline" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="vr"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown menu">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="me-3 d-none d-lg-inline outfit-regular">Douglas McGee</span>
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2380&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="42" height="42" class="rounded-circle me-2">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu shadow p-0 avatar-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user fa-sm fa-fw me-2"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-cogs fa-sm fa-fw me-2"></i>
+                                    Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#showingLogoutModal">
+                                    <i class="fa fa-sign-out fa-sm fa-fw me-2"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                    @RenderBody()
+                <!-- End of Topbar -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="showingLogoutModal" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary outfit-regular" style="font-size: 18px !important" type="button" data-bs-dismiss="modal">Cancel</button>
+                    <a class="btn text-white outfit-regular" href="/" style="background-color: var(--pink-500); font-size: 18px !important">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer-content">
+            <div id="footer-logo">
+                <img src="~/img/hugeicons--milk-bottle-white.svg" alt="Logo" />
+                <h1>Milk Store</h1>
+            </div>
+            <div id="footer-options">
+                <div id="footer-options-contact">
+                    <h3>Contacts</h3>
+                    <span>
+                        <h6>Phone Number:</h6>
+                        <p>+6012-3456789</p>
+                    </span>
+                    <span>
+                        <h6>Email:</h6>
+                        <p>test@test.com</p>
+                    </span>
+                    <span>
+                        <h6>Address:</h6>
+                        <p>123, Jalan Test, Test City, 12345</p>
+                    </span>
+                    <div id="footer-social">
+                        <h6>Social Links:</h6>
+                        <div id="images">
+                            <a href="facebook.com">
+                                <img src="~/img/logos_facebook.png" alt="Facebook" />
+                            </a>
+                            <a href="instagram.com">
+                                <img src="~/img/skill-icons_instagram.png" alt="Instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer-options-nav">
+                    <h3>More</h3>
+                    <ul>
+                        <li>
+                            <a href="#">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="#">Browse</a>
+                        </li>
+                        <li>
+                            <a href="#">Account</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms and Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/admin/site.js" asp-append-version="true"></script>
+</body>
+
+</html>

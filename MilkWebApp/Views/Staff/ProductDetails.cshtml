@@ -1,0 +1,108 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "~/Views/Staff/Layout/_StaffLayout.cshtml";
+}
+
+<link href="~/css/staff/productdetails.css" rel="stylesheet" />
+
+<section class="details-header">
+    <h2>Product Details</h2>
+    <div class="cta-return">
+        <button class="return">
+            <a href="../Staff/Product">Return to Product List</a>
+        </button>
+    </div>
+</section>
+
+<section class="basic-details">
+    <section class="title">
+        <h3>Basic Details</h3>
+        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px" width="1200px" height="5px" xml:space="preserve">
+            <path class="path2" fill="#01a09e" stroke-width="3" stroke="black" d="M0 0 l1120 0" />
+        </svg>
+    </section>
+    <section class="info-1">
+        <div class="details">
+            <img src="https://via.placeholder.com/150" alt="Product Image" />
+            <div class="infos">
+                <div class="detail">
+                    <label for="product-name">
+                        <h4>Product Name</h4>
+                    </label>
+                    <p>Test Product</p>
+                </div>
+                <div class="detail">
+                    <label for="product-name">
+                        <h4>Product Brand</h4>
+                    </label>
+                    <p>Test Brand</p>
+                </div>
+                <div class="detail">
+                    <label for="product-price">
+                        <h4>Product Price</h4>
+                    </label>
+                    <p>1.000.000đ</p>
+                </div>
+                <div class="detail">
+                    <label for="product-quantity">
+                        <h4>Product Quantity</h4>
+                    </label>
+                    <p>1000</p>
+                </div>
+            </div>
+        </div>
+        <section class="cta-basic">
+            <a href="../Staff/EditBasicProductDetails" class="edit-basic">Edit Basic Details</a>
+        </section>
+    </section>
+    
+</section>
+<section class="full-details">
+    <section class="basic-details">
+        <section class="title">
+            <h3>Full Details</h3>
+            <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1200px" height="5px"
+                 xml:space="preserve">
+                <path class="path2" fill="#01a09e" stroke-width="3" stroke="black" d="M0 0 l1120 0" />
+            </svg>
+        </section>
+        <section class="cta-details">
+            <a href="../Staff/EditProductDescription" class="edit-details">Edit Description</a>
+        </section>
+        <section class="paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore, molestiae voluptatum
+                numquam rerum magnam quia esse dicta aperiam quo, nihil molestias temporibus provident deserunt quod
+                debitis quis culpa. Hic!
+            </p>
+            <img src="https://source.unsplash.com/random/200x200" alt="Product Image" />
+        </section>
+        <section class="paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore, molestiae voluptatum
+                numquam rerum magnam quia esse dicta aperiam quo, nihil molestias temporibus provident deserunt quod
+                debitis quis culpa. Hic!
+            </p>
+        </section>
+        <section class="paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore, molestiae voluptatum
+                numquam rerum magnam quia esse dicta aperiam quo, nihil molestias temporibus provident deserunt quod
+                debitis quis culpa. Hic!
+            </p>
+            <img src="https://source.unsplash.com/random/150x150" alt="Product Image" />
+        </section>
+        <section class="paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore, molestiae voluptatum
+                numquam rerum magnam quia esse dicta aperiam quo, nihil molestias temporibus provident deserunt quod
+                debitis quis culpa. Hic!
+            </p>
+        </section>
+    </section>
+</section>

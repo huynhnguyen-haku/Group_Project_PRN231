@@ -1,0 +1,35 @@
+﻿@using MilkData.Models
+@{
+    ViewData["Title"] = "Add";
+}
+
+@model Gift
+
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">GiftId</label>
+        @Html.HiddenFor(model => model.GiftId)
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">Name:</label>
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Description:</label>
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">ImageUrl:</label>
+        @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Point:</label>
+        @Html.EditorFor(model => model.Point, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Quantity:</label>
+        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+</div>

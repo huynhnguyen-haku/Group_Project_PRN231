@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Product Details - Edit Product Basic Details";
+    Layout = "~/Views/Staff/Layout/_StaffLayout.cshtml";
+}
+
+<link href="~/css/staff/editproductdescription.css" rel="stylesheet"/>
+
+<section class="basic-details">
+    <section class="title">
+        <h3> Edit Basic Details</h3>
+        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px" width="1200px" height="5px" xml:space="preserve">
+        <path class="path2" fill="#01a09e" stroke-width="3" stroke="black" d="M0 0 l1120 0" />
+        </svg>
+    </section>
+    <form >
+        <div>
+            <label>Product Name</label>
+            <input type="text" name="product-name" placeholder="Test Product"/>
+        </div>
+        <div>
+            <label>Product Brand</label>
+			<input type="text" name="product-brand" placeholder="Test Brand"/>
+        </div>
+        <div>
+			<label>Product Price</label>
+			<input type="number" name="product-price" placeholder="240"/>
+        </div>
+		<div>
+            <label>Product Quantity In Stock</label>
+            <input type="number" name="product-quantity" placeholder="1800"/>
+        </div>
+        <div>
+            <label>Product Image</label>
+            <input type="file" name="product-image"/>
+        </div>
+
+        <section class="actions">
+            <button type="submit" class="finish-editing">Finish Editing</button>
+            <button type="submit">
+                <a href="../Staff/ProductDetails">Cancel Editing</a>
+            </button>
+        </section>
+        
+    </form>
+</section>

@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Staff/Layout/_StaffLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/staff/dashboard.css" />
+
+<section class="overall">
+	<div class="card">
+		<div class="content">
+			<h3>Total Revenue</h3>
+			<p>180.000 VNĐ</p>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+			<path fill="currentColor" d="m16 11.78l4.24-7.33l1.73 1l-5.23 9.05l-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z" />
+		</svg>
+	</div>
+	<div class="card">
+		<div class="content">
+			<h3>Pre-order Amount</h3>
+			<p>1800 Orders</p>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+			<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<path d="m7.5 4.27l9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+				<path d="m3.3 7l8.7 5l8.7-5M12 22V12" />
+			</g>
+		</svg>
+	</div>
+	<div class="card">
+		<div class="content">
+			<h3>Number of Purchases</h3>
+			<p>1300 Orders</p>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+			<g fill="none" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 10h4" />
+				<path stroke-width="1.5" d="M20.833 11h-2.602C16.446 11 15 12.343 15 14s1.447 3 3.23 3h2.603c.084 0 .125 0 .16-.002c.54-.033.97-.432 1.005-.933c.002-.032.002-.071.002-.148v-3.834c0-.077 0-.116-.002-.148c-.036-.501-.465-.9-1.005-.933c-.035-.002-.076-.002-.16-.002Z" />
+				<path stroke-width="1.5" d="M20.965 11c-.078-1.872-.328-3.02-1.137-3.828C18.657 6 16.771 6 13 6h-3C6.229 6 4.343 6 3.172 7.172C2 8.343 2 10.229 2 14c0 3.771 0 5.657 1.172 6.828C4.343 22 6.229 22 10 22h3c3.771 0 5.657 0 6.828-1.172c.809-.808 1.06-1.956 1.137-3.828" />
+				<path stroke-linecap="round" stroke-width="1.5" d="m6 6l3.735-2.477a3.237 3.237 0 0 1 3.53 0L17 6" />
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.991 14h.01" />
+			</g>
+		</svg>
+	</div>
+	<div class="card">
+		<div class="content">
+			<h3>Total Vouchers Used</h3>
+			<p>240 Vouchers</p>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+			<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 6H6c-.932 0-1.398 0-1.766.152a2 2 0 0 0-1.082 1.083C3 7.602 3 8.068 3 9a3 3 0 1 1 0 6c0 .932 0 1.398.152 1.765a2 2 0 0 0 1.082 1.083C4.602 18 5.068 18 6 18h8m0-12h4c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 7.602 21 8.068 21 9a3 3 0 1 0 0 6c0 .932 0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 18 18.932 18 18 18h-4m0-12v12" />
+		</svg>
+	</div>
+</section>
+<section class="chart">
+	<div class="chart-card">
+		<div class="chart-header">
+			<div>
+				<h4>Total Revenue</h4>
+				<p>180.000 VNĐ</p>
+			</div>
+		</div>
+		<div class="chart-statistic">
+			<canvas id="revenue" width="600" height="300"></canvas>
+			
+		</div>
+	</div>
+	<div class="chart-card">
+		<div class="chart-header">
+			<div>
+				<h4>Categories Sales</h4>
+				<p>80.000 VNĐ</p>
+			</div>
+		</div>
+		<div class="chart-statistic">
+			<canvas id="catesale" width="300" height="400"></canvas>
+			
+		</div>
+	</div>
+</section>

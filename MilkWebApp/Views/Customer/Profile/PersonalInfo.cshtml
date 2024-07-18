@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Customer/Profile/Layout/_ProfileLayout.cshtml";
+}
+
+<div class="w-100 bg-white rounded">
+    <div class="d-flex align-items-center justify-content-around pt-3">
+        <div class="d-flex flex-column align-items-center">
+            <a asp-controller="Customer" asp-action="PersonalInfo" class="m-0 text-center text-decoration-none nunito-semiBold fs-5" style="color: #FF379B;">Personal Information</a>
+            <div class="rounded borderBotPr"></div>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+            <a asp-controller="Customer" asp-action="ChangePwd" class="m-0 text-center text-decoration-none nunito-regular fs-5" style="color: #FF379B;">Change Password</a>
+        </div>
+    </div>
+    <hr />
+    <form class="m-5 pb-3">
+        <div class="d-flex">
+            <div class="w-50">
+                <div class="mb-3">
+                    <label for="fullname" class="form-label nunito-semiBold fs-5">Full name</label>
+                    <div class="d-flex">
+                        <i class="fa fa-user border rounded-3 text-secondary"
+                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                        <input type="text" id="fullname" class="form-control nunito-regular fs-5" placeholder="Enter your fullname" aria-describedby="fullNameExc" autocomplete="on" required value="Jane Cooper" />
+                    </div>
+                    <p id="fullNameExc" class="form-text text-danger nunito-regular fs-6">This is error/exception</p>
+                </div>
+                <div class="mb-3 w-100">
+                    <label for="email" class="form-label nunito-semiBold fs-5">Email</label>
+                    <div class="d-flex">
+                        <i class="fa fa-envelope border rounded-3 text-secondary"
+                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                        <input type="email" id="email" class="form-control nunito-regular fs-5" placeholder="Enter your email" aria-describedby="emailExc" autocomplete="on" required />
+                        <span class="input-group-text nunito-regular" id="basic-addon2">@@email.com</span>
+                    </div>
+                    <p id="emailExc" class="form-text text-danger nunito-regular fs-6">This is error/exception</p>
+                </div>
+                <div class="mb-3 w-100">
+                    <label for="phonenumber" class="form-label nunito-semiBold fs-5">Phone number</label>
+                    <div class="d-flex">
+                        <i class="fa fa-envelope border rounded-3 text-secondary"
+                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                        <input type="text" id="phonenumber" class="form-control nunito-regular fs-5" placeholder="Enter your phone number" aria-describedby="phoneExc" autocomplete="on" required value="0987654321" />
+                    </div>
+                    <p id="phoneExc" class="form-text text-danger nunito-regular fs-6">This is error/exception</p>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label nunito-semiBold fs-5">Address</label>
+                    <div class="d-flex">
+                        <i class="fa fa-map-marker border rounded-3 text-secondary"
+                            style="padding: 10px; min-width: 50px; text-align: center;"></i>
+                        <input type="text" id="address" class="form-control nunito-regular fs-5" placeholder="Enter your address"
+                                aria-describedby="addressExc" />
+                    </div>
+                    <p id="addressExc" class="form-text text-danger nunito-regular fs-6">This is address error/exception</p>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-grow-1 align-items-center justify-content-center">
+                <img src="~/img/Avatar.png" class="rounded-circle" alt="upload avatar" width="200" height="200" />
+                <div class="d-flex flex-column align-items-center justify-content-center m-3">
+                    <input type="file" id="uploadBtnHidden" hidden />
+                    <span class="mb-3 nunito-regular" id="file-chosen">No file chosen</span>
+                    <label class="p-2 rounded btn btn-hover nunito-regular" for="uploadBtnHidden" style="background-color: #F9A8D4; color: var(--pink-800);"><i class="fa fa-camera me-2"></i>Upload your avatar</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="w-25 btn btn-hover nunito-bold fs-4" style="background-color: #F9A8D4; color: var(--pink-800);">
+                Update
+            </button>
+        </div>
+    </form>
+</div>

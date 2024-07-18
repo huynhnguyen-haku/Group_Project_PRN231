@@ -1,0 +1,77 @@
+﻿.overall {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 0;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    width: fit-content;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+    .card .content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+        .card .content h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card .content p {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+    .card svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+/* Chart section */
+.chart {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.25rem;
+}
+
+    .chart .chart-card {
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+        .chart .chart-card:nth-child(1) {
+            flex: 2;
+        }
+
+        .chart .chart-card:nth-child(2) {
+            flex: 1;
+        }
+
+
+        .chart .chart-card .chart-header h4 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            padding: 0.5rem 0;
+        }
+
+        .chart .chart-card .chart-header p {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            padding: 0.5rem 0;
+        }

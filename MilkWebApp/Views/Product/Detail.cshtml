@@ -1,0 +1,43 @@
+﻿@using MilkData.Models
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@model Product
+
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">ProductId</label>
+        @Html.HiddenFor(model => model.ProductId)
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">Name:</label>
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Price:</label>
+        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Quantity:</label>
+        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">Description:</label>
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">CategoryId:</label>
+        @Html.EditorFor(model => model.CategoryId, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">ImageUrl:</label>
+        @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">TotalRating:</label>
+        @Html.EditorFor(model => model.TotalRating, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+</div>

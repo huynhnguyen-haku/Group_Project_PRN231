@@ -1,0 +1,27 @@
+﻿@using MilkData.Models
+@{
+    ViewData["Title"] = "Add";
+}
+
+@model FeedbackMedia
+
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">FeedbackMediaId</label>
+        @Html.HiddenFor(model => model.FeedbackMediaId)
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="1">MediaUrl:</label>
+        @Html.EditorFor(model => model.MediaUrl, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">MediaType:</label>
+        @Html.EditorFor(model => model.MediaType, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="col-md-6">
+        <label for="1">FeedbackId:</label>
+        @Html.EditorFor(model => model.FeedbackId, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+</div>

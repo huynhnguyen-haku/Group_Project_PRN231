@@ -1,0 +1,251 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Staff/Layout/_StaffLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/staff/producttable.css" />
+
+<h3>Gift List</h3>
+
+<div class="search-container">
+    <div class="search-filter">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search products...">
+            <button id="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21l-4.3-4.3" />
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <button id="filter-button" type="button" onclick="add();">
+            <span>
+                @* <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 3H2l8 9.46V19l4 2v-8.54z" />
+                </svg> *@
+                <p>Add New</p>
+            </span>
+        </button>
+    </div>
+    <select id="sort-select" title="Sort">
+        <option value="">Sort by...</option>
+        <option value="alphabet">Alphabetical (A to Z)</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+        <option value="quantity">Quantity</option>
+    </select>
+
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>ImageUrl</th>
+            <th>Point</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody class="tblGiftsList">
+    </tbody>
+</table>
+
+<div class="modal fade" id="topUpModal" tabindex="-1" aria-labelledby="topUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frm", id = "frm" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="topUpModalLabel">TopUp Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="topUpModalContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btSave" type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+        var method = "";
+
+        $(document).ready(function () {
+            loadData();
+
+            $("#btSave").click(function () {
+                var formData = new FormData();
+                formData.append("GiftId", $("#GiftId").val());
+                formData.append("Name", $("#Name").val());
+                formData.append("Description", $("#Description").val());
+                formData.append("ImageUrl", $("#ImageUrl").val());
+                formData.append("Point", $("#Point").val());
+                formData.append("Quantity", $("#Quantity").val());
+                formData.append("HttpMethod", method);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Save", "Gift")',
+                    //contentType: 'application/json;charset=utf-8',
+                    //dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            $('#topUpModal').modal('hide');
+                            loadData();
+                        }
+                        alert(result.message);
+                    },
+                    error: function (xhr, error) {
+                        //alert(xhr.responseText);
+                        console.log(xhr);
+                    }
+                });
+            });
+        });
+
+        function loadData() {
+            $.ajax({
+                url: '@Url.Action("GetList", "Gift")',
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = "";
+                    $.each(result, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.name + '</td>';
+                        html += '<td>' + item.description + '</td>';
+                        html += '<td>' + item.imageUrl + '</td>';
+                        html += '<td>' + item.point + '</td>';
+                        html += '<td>' + item.quantity + '</td>';
+                        html += '<td class="action-links">';
+                        html += '<a href="#" onclick = "return detail(\'' + item.giftId + '\')" > Detail </a> <a href="#" onclick="return edit(\'' + item.giftId + '\')">Edit</a> <a href="#" onclick = "delele(\'' + item.giftId + '\')" > Delete </a></td > ';
+                        html += '</tr>';
+                    });
+                    $('.tblGiftsList').html(html);
+                },
+                error: function (xhr, error) {
+                    alert(xhr.statusText);
+                }
+            })
+        }
+
+        function add() {
+            $("#topUpModalContent").html("");
+            $("#topUpModalLabel").html("Add New");
+            method = "POST";
+
+            $.ajax({
+                url: '@Url.Action("AddNew", "Gift")',
+                type: "GET",
+                success: function (result) {
+                    $("#topUpModalContent").html(result);
+                    $('#topUpModal').modal('show');
+                },
+                error: function (message) {
+                    alert(message);
+                }
+            });
+        }
+
+        function detail(id) {
+            $("#topUpModalContent").html("");
+            $("#topUpModalLabel").html("Detail");
+
+            var formData = new FormData();
+            formData.append("id", id);
+
+            $.ajax({
+                url: '@Url.Action("Detail", "Gift")',
+                type: "POST",
+                // contentType: 'application/json;charset=utf-8',
+                // dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (result) {
+                    $("#topUpModalContent").html(result);
+                    $('#topUpModal').modal('show');
+                },
+                error: function (message) {
+                    console.log(message)
+                    alert(message);
+                }
+            });
+        }
+
+        function edit(id) {
+            $("#topUpModalContent").html("");
+            $("#topUpModalLabel").html("Update");
+            method = "PUT";
+
+            var formData = new FormData();
+            formData.append("id", id);
+
+            $.ajax({
+                url: '@Url.Action("Edit", "Gift")',
+                type: "POST",
+                //contentType: 'application/json;charset=utf-8',
+                //dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (result) {
+                    $("#topUpModalContent").html(result);
+                    $('#topUpModal').modal('show');
+                },
+                error: function (message) {
+                    console.log(message)
+                    alert(message);
+                }
+            });
+        }
+
+        function delele(id) {
+            var result = confirm("Are you sure to delete?");
+            method = "DELETE";
+            if (result) {
+                //alert(id);
+                var formData = new FormData();
+                formData.append("id", id);
+
+                $.ajax({
+                    url: '@Url.Action("Delete", "Gift")',
+                    type: "DELETE",
+                    //contentType: 'application/json;charset=utf-8',
+                    //dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            $('#topUpModal').modal('hide');
+                            loadData();
+                        }
+                    },
+                    error: function (message) {
+                        alert(message);
+                    }
+                });
+            }
+        }
+
+    </script>
+}

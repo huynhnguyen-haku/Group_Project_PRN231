@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Milk Shop";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/landing-page/landingpage.css">
+    <script src="~/js/landing-page/landingpage.js"></script>
+    <script src="~/js/cursor/cursor.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cursor"></div>
+    <!-- Header Section -->
+    <header class="header">
+        <div id="logo">
+            <img src="../img/hugeicons--milk-bottle.svg" alt="Logo" />
+            <h1>Milk Store</h1>
+        </div>
+        <nav id="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="../Login">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="container">
+            <h2>Nurturing babies today for a glowing future ahead</h2>
+            <a href="#">Explore More</a>
+        </div>
+    </section>
+
+    <!-- Main Section 1: Special Feature -->
+    <section id="special">
+        <div id="special-1">
+            <img src="~/img/landing_image_2.jpg" alt="Special Feature" />
+            <div>
+                <h3>Babies Milk to the Rescue!</h3>
+                <p>Every children has their own unique interest towards certain milk product. And in our shop, we provide a wide variety for parents to select what’s best for their children</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+
+        <div id="special-2">
+            <div>
+                <h3>Weekly Blogs of...kids and parents?</h3>
+                <p>Each week, our shop provides articles related to parenting essentials, and some other interesting bits about a child’s growth. Who knows, you might find the nature of a kid quite fascinating in many ways!</p>
+                <button>Learn More</button>
+            </div>
+            <img src="~/img/landing_image_3.jpg" alt="Special Feature" />
+        </div>
+    </section>
+
+    <!-- Main Section 2: Member Exclusive -->
+    <section id="mem-exclusive">
+        <h3>Join our membership for exclusive benefits!</h3>
+        <ul>
+            <li>
+                <div>
+                    <img src="~/img/mdi--star-four-points-circle-outline.svg" alt="Star">
+                    <p>More exclusive products available for Members</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="~/img/icon-park-outline--order.svg" alt="Order">
+                    <p>Pre-order out of stock products</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="~/img/mdi--voucher-outline.svg" alt="Voucher">
+                    <p>Over 200+ Discount and Vouchers awaits</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="~/img/fluent-mdl2--feedback.svg" alt="Feedback">
+                    <p>Provide feedback for products</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Main Section 3: Best Products -->
+    <section id="best-products">
+        <h3>Best Products</h3>
+        <p>These products are famous among all Members of the shop. Explore further and pick what’s best for yourself (and your baby)</p>
+        <div id="product-list">
+            <div class="product">
+                <img src="~/img/landing_image_5.jpg" alt="Product" />
+                <h4>Oat Milk</h4>
+                <p>Packed with nutrition, this product is perfect for mothers to regenerate energy</p>
+                <button>View Product</button>
+            </div>
+            <div class="product">
+                <img src="~/img/landing_image_5.jpg" alt="Product" />
+                <h4>Oat Milk</h4>
+                <p>Packed with nutrition, this product is perfect for mothers to regenerate energy</p>
+                <button>View Product</button>
+            </div>
+            <div class="product">
+                <img src="~/img/landing_image_5.jpg" alt="Product" />
+                <h4>Oat Milk</h4>
+                <p>Packed with nutrition, this product is perfect for mothers to regenerate energy</p>
+                <button>View Product</button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div id="footer-content">
+            <div id="footer-logo">
+                <img src="~/img/hugeicons--milk-bottle-white.svg" alt="Logo" />
+                <h1>Milk Store</h1>
+            </div>
+            <div id="footer-options">
+                <div id="footer-options-contact">
+                    <h3>Contacts</h3>
+                    <span>
+                        <h6>Phone Number:</h6>
+                        <p>+6012-3456789</p>
+                    </span>
+                    <span>
+                        <h6>Email:</h6>
+                        <p>test@test.com</p>
+                    </span>
+                    <span>
+                        <h6>Address:</h6>
+                        <p>123, Jalan Test, Test City, 12345</p>
+                    </span>
+                    <div id="footer-social">
+                        <h6>Social Links:</h6>
+                        <div id="images">
+                            <a href="facebook.com">
+                                <img src="~/img/logos_facebook.png" alt="Facebook" />
+                            </a>
+                            <a href="instagram.com">
+                                <img src="~/img/skill-icons_instagram.png" alt="Instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer-options-nav">
+                    <h3>More</h3>
+                    <ul>
+                        <li>
+                            <a href="#">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="#">Browse</a>
+                        </li>
+                        <li>
+                            <a href="#">Account</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms and Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
